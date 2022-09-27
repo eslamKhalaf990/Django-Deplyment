@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{%extends 'basic_app/base.html'%}
+{%load static%}
+{%block body_block%}
+ <div>
+     {%if registered%}
+     <h1>Django Login, Registration</h1>
+     {%else%}
+     <h1>Register First</h1>
+     <h3>fill out the following form</h3>
+     <form method="post">
+         {{user_form.as_p}}
+         {{profile_form.as_p}}
+         {%csrf_token%}
+         <input type="submit" value="Register">
+     </form>
+     {%endif%}
+
+ </div>
+    {%endblock%}
